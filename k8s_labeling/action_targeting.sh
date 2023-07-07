@@ -7,9 +7,9 @@
 
 labelname="labelname=value"
 count=0
-command_output="targettext_sample.txt" # result of kubectl get configmap
+command_input="targettext_sample.txt" # result of kubectl get configmap
 
-cat $command_output | while read line; do 
+cat $command_input | while read line; do
 	pattern=$(echo $line| cut -d " " -f1);
 	if [[ $pattern == *lambda* ]] || [[ $pattern == *thanks* ]]; then
 		echo $pattern;
