@@ -6,8 +6,10 @@
 #######
 
 labelname="labelname=value"
-count=0
 command_input="targettext_sample.txt" # result of kubectl get configmap
+cycle_quantity="3"
+
+count=0
 
 cat $command_input | while read line; do
 	name=$(echo $line| cut -d " " -f1);
@@ -15,7 +17,7 @@ cat $command_input | while read line; do
 		echo $name;
 		count=$((count+1));
 		echo $count;
-		if [[ $count -le 1 ]]; then #to how many lines aplly the next command
+		if [[ $count -le $cycle_quantity ]]; then #to how many lines aplly the next command
 			echo "kubectl label configmap $name $labelname"
 			#kubectl label configmap $name $labelname
 		fi
