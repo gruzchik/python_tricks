@@ -6,13 +6,10 @@ import datetime
 
 
 def command(name, names_number, quantity):
-    print(f'kubectl label configmap {argument} x {quantity} times')
+    print(f'kubectl label configmap {name} x {quantity} time(s)')
     for _ in range(quantity):
-
         try:
             subprocess.call(["kubectl label configmap", name])
-
-
         except:
             print(f'Error lable:{names_number}\n'
                   f'{datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")}:\n'
