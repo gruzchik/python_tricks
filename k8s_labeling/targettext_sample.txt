@@ -1,7 +1,7 @@
 NAME                      DATA   AGE
-someacc-cfg        1      337d
+someacc-cfg        5      337d
 newacc-cfg         1      426d
-lambda-fix-3pewGKkCuS   1      455d
+lambda-fix-3pewGKkCuS   5      455d
 lambda-fix-5kChiCqkeh   1      235d
 lambda-fix-77JyfH3eEV   1      324d
 lambda-fix-T5cAhX7wGg   1      372d
@@ -19,5 +19,5 @@ thanks-4BivxgEya2          1      271d
 thanks-4gTrU3U8PY          1      160d
 thanks-2UE78SsN6g          1      158d
 thanks-wan8wh4ZDU          1      152d
-thanks-TRjotz3NrZ          1      245d
+thanks-TRjotz3NrZ          5      245d
 thanks-HqcT6B2WoP          1      132d
