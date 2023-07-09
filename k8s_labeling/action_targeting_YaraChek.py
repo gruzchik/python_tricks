@@ -6,13 +6,16 @@ import datetime
 
 
 def command(name, names_number, label):
-    print(f'kubectl label configmap {name} {label}')
+    to_exec = 'kubectl label configmap ' + name
+    print(f'{to_exec} {label}')
     try:
-        subprocess.call(["kubectl label configmap", " ".join((name, label))])
+        subprocess.call([to_exec, label])  # If it does not work in this form, do this:
+#       subprocess.call(["kubectl label configmap", " ".join((name, label))])
+
     except:
         print(f'Error while attempt #{names_number}\n'
-              f'{datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")}:\n'
-              f'Error while executing "kubectl label configmap {name}"\n'
+              f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}:\n'
+              f'Error while executing "{to_exec}"\n'
               f'{traceback.format_exc()}\n', file=ouf)
 
 
