@@ -4,7 +4,7 @@ on: [push]
 push:
     branches:
         - 'feat/**'
-        - "$default-branch"
+        - $default-branch
   pull_request:
     branches: [ $default-branch ]
 
