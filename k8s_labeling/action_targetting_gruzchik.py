@@ -1,5 +1,4 @@
-import subprocess
-import os
+#!/usr/bin/python
 
 # settings
 labelname="labelname=value"
@@ -12,17 +11,17 @@ bash_command="kubectl get configmap"
 # Opening file
 input_file = open(command_input, 'r')
 count = 0
- 
+
 # Using for loop
 print("Using for loop")
 for line in input_file:
     name=line.split()[0] # name of configmap
     if "lambda" in name or "thanks" in name:
         count += 1
-        if int(cycle_quantity) >= count:        
+        if int(cycle_quantity) >= count:
             print("kubectl configmap label " +name+ " " +labelname)
-        print(name)   
+        print(name)
         print(count)
-    
+
 # Closing files
 input_file.close()
