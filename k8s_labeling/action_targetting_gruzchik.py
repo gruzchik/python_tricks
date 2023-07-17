@@ -1,10 +1,13 @@
 #!/usr/bin/python
 
+'''
+processing and updating labels for k8s configmap
+'''
+
 # settings
 LABELNAME="labelname=value"
 COMMAND_INPUT="targettext_sample.txt" # result of kubectl get configmap
 CYCLE_QUANTITY="3"
-
 
 BASH_COMMAND="kubectl get configmap"
 
