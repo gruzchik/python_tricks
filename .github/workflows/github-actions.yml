@@ -1,12 +1,12 @@
 name: Pylint
 
 on: [push]
-push:
-    branches:
-        - 'feat/**'
-        - $default-branch
-  pull_request:
-    branches: [ $default-branch ]
+# push:
+#     branches:
+#         - 'feat/**'
+#         - $default-branch
+#   pull_request:
+#     branches: [ $default-branch ]
 
 jobs:
   build:
