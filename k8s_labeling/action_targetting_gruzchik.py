@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-'''
-processing and updating labels for k8s configmap
-'''
+''' processing and updating labels for k8s configmap '''
 
 # settings
 LABELNAME="labelname=value"
