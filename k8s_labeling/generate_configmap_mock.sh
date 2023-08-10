@@ -12,13 +12,15 @@ echo "someacc-cfg        1      422d"
 echo "newacc-cfg        1      422d"
 
 for ((n=0;n<${LAMBDA_FIX_QUANTITY};n++)); do
-	RANDOM_HASH_L=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
-	RANDOM_DAYS_L=$((1 + $RANDOM % 300))	
-	echo "lambda-fix-${RANDOM_HASH_L}   1      ${RANDOM_DAYS_L}d"
+	# RANDOM_HASH_L=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
+	# RANDOM_DAYS_L=$((1 + $RANDOM % 300))	
+	# echo "lambda-fix-${RANDOM_HASH_L}   1      ${RANDOM_DAYS_L}d"
+	echo "lambda-fix-11111   1      11111d"
 done
 
 for ((n=0;n<${THANKS_QUANTITY};n++)); do
-        RANDOM_HASH_T=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
-        RANDOM_DAYS_T=$((1 + $RANDOM % 300))	
-	echo "thanks-${RANDOM_HASH_T}          1      ${RANDOM_DAYS_T}d"
+    #     RANDOM_HASH_T=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
+    #     RANDOM_DAYS_T=$((1 + $RANDOM % 300))	
+	# echo "thanks-${RANDOM_HASH_T}          1      ${RANDOM_DAYS_T}d"
+	echo "thanks-222          1      222d"
 done
