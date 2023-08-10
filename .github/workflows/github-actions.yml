@@ -47,5 +47,5 @@ jobs:
       continue-on-error: true
     - name: Run Gruzchik python script
       run: |
-        cd ./k8s_labeling && python action_targetting_gruchik.py
+        cd ./k8s_labeling && python action_targetting_gruzchik.py
       continue-on-error: true
