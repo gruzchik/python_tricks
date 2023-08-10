@@ -47,8 +47,9 @@ jobs:
     - name: Initiating mock setup
       run: |
         SCRIPTPATH=$($(pwd)/k8s_labeling/generate_configmap_mock.sh)
-        alias kubectl="/bin/bash $SCRIPTPATH/generate_configmap_mock.sh"
+        alias kubectl="/bin/bash ./k8s_labeling/generate_configmap_mock.sh"
         pwd && ls -la ./ && ls -lha $SCRIPTPATH
         alias
+        shopt -s expand_aliases
         kubectl get configmap
     #   continue-on-error: true
