@@ -46,6 +46,6 @@ jobs:
         python --version
     - name: Initiating mock setup
       run: |
-        source ./start_mock.sh
+        source ./k8s_labeling/start_mock.sh
         alias
     #   continue-on-error: true
