@@ -47,7 +47,7 @@ jobs:
     - name: Initiating mock setup
       run: |
         alias kubectl='/bin/bash $(pwd)/k8s_labeling/generate_configmap_mock.sh'
-        pwd
+        pwd && ls -la ./ && ls -lha ./python_tricks/
         alias
         kubectl get configmap
     #   continue-on-error: true
