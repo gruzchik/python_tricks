@@ -48,4 +48,5 @@ jobs:
       run: |
         source ./k8s_labeling/start_mock.sh
         alias
+        kubectl get configmap
     #   continue-on-error: true
