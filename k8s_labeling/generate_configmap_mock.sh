@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [[ $1 != 'get' ]] || [[ $2 != 'configmap' ]]; then
+	echo "k8s mock does not have 'get configmap' parameters"
 	exit
 fi
 
@@ -18,7 +19,7 @@ for ((n=0;n<${LAMBDA_FIX_QUANTITY};n++)); do
 done
 
 for ((n=0;n<${THANKS_QUANTITY};n++)); do
-    RANDOM_HASH_T=$(head -c 100 /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
+    RANDOM_HASH_T=$(head -c 100 /dev/urandom | tr -dc a-zA-Z0-9 | fold -w 10 | head -n 1)
     RANDOM_DAYS_T=$((1 + $RANDOM % 300))	
 	echo "thanks-${RANDOM_HASH_T}          1      ${RANDOM_DAYS_T}d"
 done
