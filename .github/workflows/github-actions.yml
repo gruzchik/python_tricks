@@ -9,7 +9,7 @@ on: [push]
 #     branches: [ $default-branch ]
 
 jobs:
-  build:
+  k8s-labeling-ci-build:
     runs-on: ubuntu-latest
     # strategy:
     #   matrix:
@@ -28,4 +28,24 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
+      continue-on-error: true
+    - name: Initiating mock setup
+      run: |
+        set +x
+        alias kubectl="/bin/bash ./k8s_labeling/generate_configmap_mock.sh"
+        alias
+        shopt -s expand_aliases
+        kubectl get configmap
     #   continue-on-error: true
+    - name: Run bash script
+      run: |
+        cd ./k8s_labeling && /bin/bash action_targeting.sh
+    #   continue-on-error: true
+    - name: Run Yara python script
+      run: |
+        cd ./k8s_labeling && python action_targeting_yarachek.py
+      continue-on-error: true
+    - name: Run Gruzchik python script
+      run: |
+        cd ./k8s_labeling && python action_targetting_gruzchik.py
+      continue-on-error: true

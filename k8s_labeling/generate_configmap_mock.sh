@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [[ $1 != 'get' ]] || [[ $2 != 'configmap' ]]; then
+	echo "k8s mock does not have 'get configmap' parameters"
 	exit
 fi
 
@@ -12,13 +13,13 @@ echo "someacc-cfg        1      422d"
 echo "newacc-cfg        1      422d"
 
 for ((n=0;n<${LAMBDA_FIX_QUANTITY};n++)); do
-	RANDOM_HASH_L=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
+	RANDOM_HASH_L=$(head -c 100 /dev/urandom | tr -dc a-zA-Z0-9 | fold -w 10 | head -n 1)
 	RANDOM_DAYS_L=$((1 + $RANDOM % 300))	
 	echo "lambda-fix-${RANDOM_HASH_L}   1      ${RANDOM_DAYS_L}d"
 done
 
 for ((n=0;n<${THANKS_QUANTITY};n++)); do
-        RANDOM_HASH_T=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
-        RANDOM_DAYS_T=$((1 + $RANDOM % 300))	
+    RANDOM_HASH_T=$(head -c 100 /dev/urandom | tr -dc a-zA-Z0-9 | fold -w 10 | head -n 1)
+    RANDOM_DAYS_T=$((1 + $RANDOM % 300))	
 	echo "thanks-${RANDOM_HASH_T}          1      ${RANDOM_DAYS_T}d"
 done
