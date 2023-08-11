@@ -6,12 +6,23 @@
 #######
 
 labelname="labelname=value"
-command_input="targettext_sample.txt" # result of kubectl get configmap
+
+## start mock for 'kubectl get configmap'
+mock_enable=yes
+# command_input="targettext_sample.txt" # result of kubectl get configmap
+if [[ $mock_enable == "yes" ]]; then
+	shopt -s expand_aliases
+	source ./start_mock.sh
+fi
+## end  mock for 'kubectl get configmap'
+
+command_input=$(kubectl get configmap)
 cycle_quantity="3"
 
 count=0
 
-cat $command_input | while read line; do
+# cat $command_input | while read line; do
+echo "$command_input" | while read line; do
 	name=$(echo $line| cut -d " " -f1);
 	if [[ $name == *lambda* ]] || [[ $name == *thanks* ]]; then
 		echo $name;
