@@ -1,0 +1,10 @@
+# comment the filenames you don't need
+
+Settings file:
+./files/settings.yaml
+
+File list for checking:
+./files/deployment.yaml
+#overlays/sandbox/deployment-patch.yaml # deployment with values
+#overlays/alpha/deployment-patch.yaml # deployment with values
+#overlays/beta/deployment-patch.yaml # deployment with values
