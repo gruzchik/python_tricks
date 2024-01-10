@@ -72,7 +72,7 @@ jobs:
     - name: Run bash script
       run: |
         cd ./yaml_text_search && /bin/bash count_values.sh
-    #   continue-on-error: true
+      continue-on-error: true
     - name: Run Yara python script
       run: |
         cd ./yaml_text_search && python yara_author_count_values.py
