@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kubesample
+  name: kubesample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubesample
+  template:
+    metadata:
+      labels:
+        app: kubesample
+    spec:
+      containers:
+      - image: saravak/kubesample
+        name: kubesample
+        imagePullPolicy: Always
+        resources:
+          limits: 
+            cpu: '0.5'
+            memory: 100Mi
+        command:
+          - "node"
+          - "$(OPTIONS)"
+          - "index.js"
+        env: 
+          - name: appport
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: PORT
+          - name: ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: ENVIRONMENT
+          - name: OPTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: NODE_OPTIONS
+          - name: DNS_ENV_1
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: DNS_ENV
+          - name: MKV_ENVIRONMENT_1
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: MKV_ENVIRONMENT
+          - name: BTW_PARAMETER_1
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: BTW_PARAMETER
+        volumeMounts:
+          - mountPath: /app/dev/status.html
+            name: staticfile
+            subPath: status.html
+      volumes:
+        - name: staticfile
+          configMap: 
+            name: kubesample
