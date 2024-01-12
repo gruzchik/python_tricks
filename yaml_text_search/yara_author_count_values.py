@@ -17,20 +17,20 @@ def work_files(filename):
     return value_list_zero, output_list
 
 
-def first_search(filename):
+def settings_search(filename):
     pattern = re.compile(r'\bvalue: ?(\w+)\b')
     with open(filename) as inf:
         found = {value for value in pattern.findall(inf.read())}
     return sorted(found)
 
 
-def second_search(check_list, key_list):
+def deployment_search(check_list, key_list):
     found = []
     for filename in check_list:
         with open(filename, 'r') as inf:
             text = inf.read()
             for elem in key_list:
-                pattern = re.compile(fr'\b{elem}\b')
+                pattern = re.compile(fr'\bkey: ?{elem}\b')
                 if pattern.search(text):
                     found.append((filename, elem))
     return found
@@ -39,6 +39,6 @@ def second_search(check_list, key_list):
 FILENAMES_IN = './files/check_depl_files.lst'
 VALUE_LIST_ZERO, CHECK_LIST = work_files(FILENAMES_IN)
 
-key_lst = first_search(VALUE_LIST_ZERO)
-file_lst = second_search(CHECK_LIST, key_lst)
+key_lst = settings_search(VALUE_LIST_ZERO)
+file_lst = deployment_search(CHECK_LIST, key_lst)
 [print(f'In {row[0]}\tvalue: {row[1]}') for row in file_lst]
