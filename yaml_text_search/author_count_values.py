@@ -15,7 +15,7 @@ count=0
 
 with open(VALUE_LIST_ZERO,'r') as file: 
     for i in file:
-        if "value" in i:
+        if "value:" in i:
             #print("check.."+i+"\n")
             i=i.strip() 
             sample=i.split(": ")
@@ -33,9 +33,4 @@ with open(VALUE_LIST_ZERO,'r') as file:
                             count=count+1
                             print(f'value {count}: {element[1]}')
                             break
-
-# Closing files
-file.close()
-file1.close()
-
 
