@@ -20,7 +20,7 @@ def work_files(filename):
 def settings_search(filename):
     pattern = re.compile(r'\bvalue: ?(\w+)\b')
     with open(filename) as inf:
-        found = {value for value in pattern.findall(inf.read())}
+        found = set(pattern.findall(inf.read()))
     return sorted(found)
 
 
