@@ -12,7 +12,7 @@ def work_files(filename):
         if work_list[i - 1] == 'Settings file:' and not work_list[i].startswith('#'):
             value_list_zero = work_list[i]
         if work_list[i - 1] == 'File list for checking:' and not work_list[i].startswith('#'):
-            output_list.append(work_list[i])
+            output_list.append(work_list[i].split(' #')[0])
 
     return value_list_zero, output_list
 
