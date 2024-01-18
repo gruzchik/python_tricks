@@ -8,3 +8,4 @@ File list for checking:
 #overlays/sandbox/deployment-patch.yaml # deployment with values
 #overlays/alpha/deployment-patch.yaml # deployment with values
 #overlays/beta/deployment-patch.yaml # deployment with values
+./files/file_2.txt # test file without patterns
