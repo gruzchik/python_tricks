@@ -1,0 +1,11 @@
+# info about yaml config: https://betterdatascience.com/python-yaml-configuration-files
+# best practices: https://climbtheladder.com/10-python-config-file-best-practices/
+# comment the filenames you don't need
+
+settings-file: ./files/settings.yaml
+
+destination-files: ./files/deployment.yaml
+#- overlays/sandbox/deployment-patch.yaml # deployment with values
+#- overlays/alpha/deployment-patch.yaml # deployment with values
+#- overlays/beta/deployment-patch.yaml # deployment with values
+# - ./files/file_2.txt # test file without patterns
