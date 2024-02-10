@@ -52,11 +52,21 @@ spec:
               configMapKeyRef:
                 name: kubesample
                 key: MKV_ENVIRONMENT
+          - name: SOME_PARAMETER_1
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: SOME_PARAMETER
           - name: BTW_PARAMETER_1
             valueFrom:
               configMapKeyRef:
                 name: kubesample
                 key: BTW_PARAMETER
+          - name: NEW_PARAMETER_1
+            valueFrom:
+              configMapKeyRef:
+                name: kubesample
+                key: NEW_PARAMETER
         volumeMounts:
           - mountPath: /app/dev/status.html
             name: staticfile
