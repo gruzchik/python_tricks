@@ -4,16 +4,17 @@
 
 import re
 import sys
+import yaml
 
 
-def work_files(filename: str) -> tuple:
-    """    Extract file names to parse    """
+def work_names(filename: str) -> tuple:
+    """    Extract file names to parse and word after which script need to look for a pattern    """
     with open(filename, encoding='utf-8') as inf:
-        work_list = [line.strip() for line in inf if line != '\n' and not line.startswith('#')]
-    value_list_zero = work_list[work_list.index('Settings file:') + 1]
-    output_list = work_list[work_list.index('File list for checking:') + 1:]
-    output_list = [elem.split('#')[0].strip() for elem in output_list]
-    return value_list_zero, output_list
+        config = yaml.load(inf, Loader=yaml.FullLoader)
+    value_list_zero = config.get('settings-file')
+    output_list = config.get('destination-files')
+    key_word = config.get('search-settings-pattern')
+    return value_list_zero, output_list, key_word
 
 
 def settings_search(filename: str, keyword: str) -> list:
@@ -38,12 +39,8 @@ def result_deployment_search(check_list: list, key_list: list) -> dict:
     return found
 
 
-FILENAMES_IN = './files/check_depl_files'
-
-with open('./files/match_after_which', encoding='utf-8') as word:
-    MATCH_AFTER_WHICH = word.read().strip()
-
-VALUE_LIST_ZERO, CHECK_LIST = work_files(FILENAMES_IN)
+FILENAMES_IN = './config_depl_files.yaml'
+VALUE_LIST_ZERO, CHECK_LIST, MATCH_AFTER_WHICH = work_names(FILENAMES_IN)
 
 key_lst = settings_search(VALUE_LIST_ZERO, MATCH_AFTER_WHICH)
 if not key_lst:
