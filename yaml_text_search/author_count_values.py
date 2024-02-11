@@ -7,7 +7,6 @@ import yaml
 # settings file
 with open("config_depl_files.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
-print(config)
 
 def retrieve_setting_values() -> list:
     ''' retrieve values from the settings file '''
