@@ -4,7 +4,8 @@
 
 settings-file: ./files/settings.yaml
 
-destination-files: ./files/deployment.yaml
+destination-files:
+- ./files/deployment.yaml
 #- overlays/sandbox/deployment-patch.yaml # deployment with values
 #- overlays/alpha/deployment-patch.yaml # deployment with values
 #- overlays/beta/deployment-patch.yaml # deployment with values

@@ -24,14 +24,15 @@ def retrieve_setting_values() -> list:
 
 def find_declarations():
     ''' find declarations in description file '''
-    with open(config["destination-files"],'r') as destination_file:
-        result = []
-        for j in destination_file:
-            if "{}:".format(config["search-deployment-pattern"]) in j:
-                j=j.strip()
-                element=j.split(": ")
-                result.append(element[1])
-        return result
+    for file_for_parsing in config["destination-files"]:
+            with open(file_for_parsing,'r') as destination_file:
+                result = []
+                for j in destination_file:
+                    if "key:" in j:
+                        j=j.strip()
+                        element=j.split(": ")
+                        result.append(element[1])
+                return result
 
 def find_matches(find_items: list, settings_items: list) -> dict:
     ''' find matches in settings and description file '''
