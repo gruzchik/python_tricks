@@ -14,7 +14,7 @@ def retrieve_setting_values() -> list:
         # result = ''
         result = []
         for i in source_file:
-            if "secretKey:" in i:
+            if "{}:".format(config["search-settings-pattern"]) in i:
                 # result += print("check.."+i+"\n")
                 i=i.strip()
                 sample=i.split(": ")
@@ -27,7 +27,7 @@ def find_declarations():
     with open(config["destination-files"],'r') as destination_file:
         result = []
         for j in destination_file:
-            if "key:" in j:
+            if "{}:".format(config["search-deployment-pattern"]) in j:
                 j=j.strip()
                 element=j.split(": ")
                 result.append(element[1])
