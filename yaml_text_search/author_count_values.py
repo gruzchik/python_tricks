@@ -15,7 +15,7 @@ def retrieve_setting_values() -> list:
         # result = ''
         result = []
         for i in source_file:
-            if "secretKey:" in i:
+            if "{}:".format(config["search-settings-pattern"]) in i:
                 # result += print("check.."+i+"\n")
                 i=i.strip()
                 sample=i.split(": ")
