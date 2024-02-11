@@ -9,3 +9,6 @@ destination-files: ./files/deployment.yaml
 #- overlays/alpha/deployment-patch.yaml # deployment with values
 #- overlays/beta/deployment-patch.yaml # deployment with values
 # - ./files/file_2.txt # test file without patterns
+
+search-settings-pattern: "value"
+search-deployment-pattern: "key"
