@@ -11,14 +11,11 @@ with open("config_depl_files.yaml", "r") as f:
 def retrieve_setting_values() -> list:
     ''' retrieve values from the settings file '''
     with open(config["settings-file"],'r') as source_file:
-        # result = ''
         result = []
         for i in source_file:
             if "{}:".format(config["search-settings-pattern"]) in i:
-                # result += print("check.."+i+"\n")
                 i=i.strip()
                 sample=i.split(": ")
-                # result += sample[1]+"\n"
                 result.append(sample[1])
         return result
 
@@ -38,17 +35,9 @@ def find_matches(find_items: list, settings_items: list) -> dict:
     ''' find matches in settings and description file '''
     overlap = []
     count = 0
-    # overlap = "\n".join(set(find_items) & set(settings_items))
-    # overlap = [x for x in find_items if x in settings_items]
     for item in find_items:
         if item in settings_items:
             overlap.append(item)
-    return overlap
-
-    #         count=count+1
-    #         overlap += "value "+str(count)+": "+item+"\n"
-    # overlap = "\n".join(overlap)
-
     return overlap
 
 if __name__ == "__main__":
@@ -57,10 +46,9 @@ if __name__ == "__main__":
     # print(setting_values)
     # print(find_declarations())
 
-    print(final_results)
+    # print(final_results)
     count=0
     for i in final_results:
         count=count+1
-        # print("value "+str(count)+": "+i)
         print("value {}: {}".format(str(count), i))
     None
