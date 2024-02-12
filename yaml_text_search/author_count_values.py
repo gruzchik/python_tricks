@@ -28,7 +28,7 @@ def find_declarations():
             with open(file_for_parsing,'r') as destination_file:
                 result = []
                 for j in destination_file:
-                    if "key:" in j:
+                    if "{}:".format(config["search-deployment-pattern"]) in j:
                         j=j.strip()
                         element=j.split(": ")
                         result.append(element[1])
