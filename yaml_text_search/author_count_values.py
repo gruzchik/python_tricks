@@ -22,9 +22,7 @@ def retrieve_setting_values() -> list:
 def find_declarations():
     ''' find declarations in description file '''
     result = []
-    # print(config["destination-files"])
     for file_for_parsing in config["destination-files"]:
-            # print(file_for_parsing)
             with open(file_for_parsing,'r') as destination_file:
                 for j in destination_file:
                     if "{}:".format(config["search-deployment-pattern"]) in j:
