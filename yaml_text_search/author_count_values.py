@@ -5,15 +5,15 @@
 import yaml
 
 # settings file
-with open("config_depl_files.yaml", "r") as f:
+with open('config_depl_files.yaml', 'r', encoding='utf-8') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
 def retrieve_setting_values() -> list:
     ''' retrieve values from the settings file '''
-    with open(config["settings-file"],'r') as source_file:
+    with open(config['settings-file'], 'r', encoding='utf-8') as source_file:
         result = []
         for i in source_file:
-            if "{}:".format(config["search-settings-pattern"]) in i:
+            if "{}:".format(config['search-settings-pattern']) in i:
                 i=i.strip()
                 sample=i.split(": ")
                 result.append(sample[1])
@@ -22,10 +22,10 @@ def retrieve_setting_values() -> list:
 def find_declarations():
     ''' find declarations in description file '''
     result = []
-    for file_for_parsing in config["destination-files"]:
-        with open(file_for_parsing,'r') as destination_file:
+    for file_for_parsing in config['destination-files']:
+        with open(file_for_parsing, 'r', encoding='utf-8') as destination_file:
             for j in destination_file:
-                if "{}:".format(config["search-deployment-pattern"]) in j:
+                if "{}:".format(config['search-deployment-pattern']) in j:
                     j=j.strip()
                     element=j.split(": ")
                     if element[1] not in result:
