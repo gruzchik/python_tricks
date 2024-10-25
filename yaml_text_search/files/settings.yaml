@@ -1,0 +1,42 @@
+apiVersion: v1
+data:
+  - value: ENVIRONMENT
+    remoteRef:
+      key: somevalue
+  - value: NODE_OPTIONS
+    remoteRef:
+      key: somevalue
+  - value: PORT
+    remoteRef:
+      key: somevalue
+  - value: DB_HOST
+    remoteRef:
+      key: somevalue
+  - value: DB_PORT
+    remoteRef:
+      key: somevalue
+  - value: BTW_PARAMETER
+    remoteRef:
+      key: somevalue
+  - value: SSM_PARAMETER
+    remoteRef:
+      key: somevalue
+  - value: MKV_ENVIRONMENT
+    remoteRef:
+      key: somevalue
+  - value: NDS_ENVIRONMENT
+    remoteRef:
+      key: somevalue
+  - value: DNS_ENV
+    remoteRef:
+      key: somevalue
+  - value: DNS_ENV2
+    remoteRef:
+      key: somevalue
+  - value: DNS_ENV3
+    remoteRef:
+      key: somevalue
+kind: External
+metadata:
+  name: kubesample
+  namespace: default

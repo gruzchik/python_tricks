@@ -49,3 +49,35 @@ jobs:
       run: |
         cd ./k8s_labeling && python action_targetting_gruzchik.py
       continue-on-error: true
+  yaml-textsearch-ci-build:
+    runs-on: ubuntu-latest
+    # strategy:
+    #   matrix:
+    #     python-version: ["3.8", "3.10"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint pyyaml
+        python --version
+    - name: Analysing the code with pylint
+      run: |
+        pylint $(git ls-files '*.py')
+      continue-on-error: true
+    - name: Run bash script
+      run: |
+        cd ./yaml_text_search && /bin/bash count_values.sh
+      continue-on-error: true
+    - name: Run Yara python script
+      run: |
+        cd ./yaml_text_search && python yara_author_count_values.py
+      continue-on-error: true
+    - name: Run Gruzchik python script
+      run: |
+        cd ./yaml_text_search && python author_count_values.py
+      continue-on-error: true
