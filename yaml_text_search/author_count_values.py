@@ -48,8 +48,8 @@ if __name__ == "__main__":
     # print(find_declarations())
 
     # print(final_results)
-    count=0
+    COUNT=0
     for i in final_results:
-        count=count+1
+        COUNT=COUNT+1
         print("value {}: {}".format(str(count), i))
     None
