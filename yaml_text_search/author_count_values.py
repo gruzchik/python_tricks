@@ -50,5 +50,4 @@ if __name__ == "__main__":
     COUNT=0
     for i in final_results:
         COUNT=COUNT+1
-        print("value {}: {}".format(str(count), i))
-    None
+        print("value {}: {}".format(str(COUNT), i))
