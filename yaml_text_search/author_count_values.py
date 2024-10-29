@@ -35,7 +35,6 @@ def find_declarations():
 def find_matches(find_items: list, settings_items: list) -> dict:
     ''' find matches in settings and description file '''
     overlap = []
-    count = 0
     for item in find_items:
         if item in settings_items:
             overlap.append(item)
@@ -48,8 +47,7 @@ if __name__ == "__main__":
     # print(find_declarations())
 
     # print(final_results)
-    count=0
+    COUNT=0
     for i in final_results:
-        count=count+1
-        print("value {}: {}".format(str(count), i))
-    None
+        COUNT=COUNT+1
+        print("value {}: {}".format(str(COUNT), i))
