@@ -48,6 +48,6 @@ if __name__ == "__main__":
 
     # print(final_results)
     COUNT=0
-    for i in final_results:
+    for final_line in final_results:
         COUNT=COUNT+1
-        print("value {}: {}".format(str(COUNT), i))
+        print("value {}: {}".format(str(COUNT), final_line))
