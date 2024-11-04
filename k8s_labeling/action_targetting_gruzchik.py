@@ -10,7 +10,7 @@ CYCLE_QUANTITY="3"
 BASH_COMMAND="kubectl get configmap"
 
 # Opening file
-input_file = open(COMMAND_INPUT, 'r')
+input_file = open(COMMAND_INPUT, 'r', encoding='utf-8')
 COUNT = 0
 
 # Using for loop
